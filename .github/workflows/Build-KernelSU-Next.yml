@@ -52,7 +52,7 @@ jobs:
      - name: Initialize repo and sync
        run: |
         mkdir kernel_workspace && cd kernel_workspace
-        repo init -u https://github.com/OnePlusOSS/kernel_manifest.git -b refs/heads/oneplus/${{ github.event.inputs.CPU }} -m ${{ github.event.inputs.FEIL }}.xml --depth=1
+        repo init -u https://bgithub.xyz/MiCode/Xiaomi_Kernel_OpenSource.git -b redmi-note-11-pro-plus-release -m redmi-note-11-pro-plus.xml --depth=1
         repo sync
         rm kernel_platform/common/android/abi_gki_protected_exports_* || echo "No protected exports!"
         rm kernel_platform/msm-kernel/android/abi_gki_protected_exports_* || echo "No protected exports!"
@@ -62,7 +62,7 @@ jobs:
      - name: Set up KernelSU
        run: |
         cd kernel_workspace/kernel_platform
-        curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s v1.0.3
+        curl -LSs "https://raw.bgithub.xyz/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s v1.0.3
         cd KernelSU-Next
         KSU_VERSION=$(expr $(/usr/bin/git rev-list --count HEAD) "+" 10200)
         echo "KSUVER=$KSU_VERSION" >> $GITHUB_ENV
