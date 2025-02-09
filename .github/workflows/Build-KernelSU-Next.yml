@@ -5,15 +5,15 @@ on:
       CPU:
         description: "分支"
         required: true
-        default: 'pissarro-r-oss'
+        default: 'lineage-22.1'
       FEIL:
         description: "配置文件"
         required: true
-        default: 'pissarro_user_defconfig'
+        default: 'lineageos_judyp_defconfig'
       CPUD:
         description: "处理器代号"
         required: true
-        default: 'pissarro'
+        default: 'judyp'
 
 jobs:
   build:
@@ -52,7 +52,7 @@ jobs:
      - name: Initialize repo and sync
        run: |
         mkdir kernel_workspace && cd kernel_workspace
-        repo init -u https://github.com/MiCode/Xiaomi_Kernel_OpenSource.git  --depth=1
+        repo init -u https://github.com/wahkxk/android_kernel_lge_sdm845.git  --depth=1
         repo sync
         rm kernel_platform/common/android/abi_gki_protected_exports_* || echo "No protected exports!"
         rm kernel_platform/msm-kernel/android/abi_gki_protected_exports_* || echo "No protected exports!"
